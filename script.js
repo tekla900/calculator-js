@@ -16,7 +16,7 @@ const divide = function(a, b) {
 };
 
 
-const operate = function(a, b, sign) {
+const operate = function(a, sign, b) {
     if(sign == '+') return add(a,b);
     if(sign == '-') return subtract(a,b);
     if(sign == '*') return multiply(a,b);
@@ -34,7 +34,7 @@ const numbers = document.querySelectorAll('.numbers');
 const display = document.querySelector('.display');
 const operands = document.querySelectorAll('.operands');
 const equalBtn = document.querySelector('.equal');
-
+const sum = document.querySelector('.sum');
 
 const calculator = document.querySelector('.calculator');
 const keys = document.querySelector('.calculator__keys');
@@ -65,28 +65,33 @@ keys.addEventListener('click', e => {
         }
 
         if (
-              action === 'add' ||
-              action === 'subtract' ||
-              action === 'multiply' ||
-              action === 'divide'
+              action === '+' ||
+              action === '-' ||
+              action === '*' ||
+              action === '%'
             ) {
                 numberArr.push(display.textContent);
-                // console.log();
+                numberArr.push(action)
                 console.log(keyContent);
                 calculator.dataset.previousKeyType = 'operator';
+                calculator.dataset.firstValue = displayedNum
+                calculator.dataset.operator = action
                 display.textContent = keyContent;
             }
 
+        
+        if (action === 'equal') {
+            const firstValue = calculator.dataset.firstValue
+            const operator = calculator.dataset.operator
+            const secondValue = displayedNum
+          
+            console.log(firstValue + ' ' + typeof firstValue);
+            console.log(secondValue);
+            console.log(operator);
+            console.log(operate(firstValue, operator, secondValue));
+            display.textContent = operate(firstValue, operator, secondValue)
 
-            console.log(numberArr);
+        }
     }
    })
 
-
-   //ახლა დისპლეიზე ზემოთ შემოვიღოთ ცალკე პარაგრაფი, 
-   //სადაც სრული ისტორია ჩაეწერება, ანუ 45 + 45 მაგალითად
-   //და ოპერანდებთან შემოვიღოთ იფ სტეიტმენტი, 
-   //რომ თუ იმ ერეის სიგრძე იყო 2, უკვე მოხდეს მათემატიკური ოპერაცია,
-   //შედეგი გამოისახოს დისპლეიზე, გასუფთავდეს ერეი 
-   //და ჩაიწეროს შედეგი ნულოვან ინდექსზე.
-   //
