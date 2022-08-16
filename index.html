@@ -5,36 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calculator</title>
+    <link href="styles.css" rel="stylesheet">
 </head>
+
 <body>
-    <div class="calculator">
-    <div class="container calculator__keys">
-        <!-- <div > -->
-            <!-- 0 -->
-            <p class="display">0</p>
-            <p class="sum"></p>
-        <!-- </div> -->
 
-            <button class="numbers">1</button>
-            <button class="numbers">2</button>
-            <button class="numbers">3</button>
-            <button class="numbers">4</button>
-            <button class="numbers">5</button>
-            <button class="numbers">6</button>
-            <button class="numbers">7</button>
-            <button class="numbers">8</button>
-            <button class="numbers">9</button>
-            <button class="numbers">0</button>
-            <button class="equal" data-action="equal">=</button>
+    <div class="design">
+        <div class="calculator">
+            <div class="display-container">
+                <p class="display">0</p>
+                <p class="sum"></p>
+            </div>
+                    
+            <div class="calculator__keys">
+                <div class="numbers-container">
+                    <button class="numbers">1</button>
+                    <button class="numbers">2</button>
+                    <button class="numbers">3</button>
+                    <button class="numbers">4</button>
+                    <button class="numbers">5</button>
+                    <button class="numbers">6</button>
+                    <button class="numbers">7</button>
+                    <button class="numbers">8</button>
+                    <button class="numbers">9</button>
+                    <button data-action="clear">CLEAR</button>
+                    <button class="numbers div10">0</button>
+                    <button class="equal" data-action="equal">=</button>
+                </div>
 
-            <button class="key--operator" data-action="+">+</button>
-            <button class="key--operator" data-action="-">-</button>
-            <button class="key--operator" data-action="*">*</button>
-            <button class="key--operator" data-action="%">÷</button>
-        
-        <button data-action="clear">CLEAR</button>
+                <div class="operands">
+                    <button class="key--operator" data-action="+">+</button>
+                    <button class="key--operator" data-action="-">-</button>
+                    <button class="key--operator" data-action="*">*</button>
+                    <button class="key--operator" data-action="%">÷</button>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
